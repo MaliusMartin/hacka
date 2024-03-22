@@ -1,44 +1,47 @@
 from django.shortcuts import render
 from joblib import load
-from sklearn.ensemble import RandomForestClassifier
 import os
 
-# # # Get the directory of the current Python module (__file__ is the path of the current module)
+# Get the directory of the current Python module (__file__ is the path of the current module)
 current_directory = os.path.dirname(__file__)
 
-# # # # Construct the path to the trained model file
+# Construct the path to the trained model file
 model_file_path = os.path.join(current_directory, 'trained_rf_model.joblib')
 
-# # # # Load the trained model
+# Load the trained model
 trained_rf_model = load(model_file_path)
 print("Model File Path:", model_file_path)
 
-
-
-
+# Dictionary to map predicted integers to labels
+prediction_labels = {
+    0: 'Low',
+    1: 'Medium',
+    2: 'High',
+    3: 'Very High'
+}
 
 def Home(request):
-        return render(request, 'coreapp/base.html')
-
+    return render(request, 'coreapp/base.html')
 
 def predict_human_development_level(gender_inequality_index, maternal_mortality_ratio, adolescent_birth_rate,
                                     women_parliament_seats, female_secondary_education, male_secondary_education,
                                     female_labour_force, male_labour_force):
-    # Construct input data as a dictionary or a pandas DataFrame
-    input_data = {
-        'Gender Inequality Index': gender_inequality_index,
-        'Maternal mortality ratio': maternal_mortality_ratio,
-        'Adolescent birth rate': adolescent_birth_rate,
-        'Share of seats in parliament (% held by women)': women_parliament_seats,
-        'F_secondary_educ': female_secondary_education,
-        'M_secondary_educ': male_secondary_education,
-        'F_Labour_force': female_labour_force,
-        'M_labour_force': male_labour_force
-    }
+    # Construct input data as a list or array
+    input_data = [
+        gender_inequality_index,
+        maternal_mortality_ratio,
+        adolescent_birth_rate,
+        women_parliament_seats,
+        female_secondary_education,
+        male_secondary_education,
+        female_labour_force,
+        male_labour_force
+    ]
 
     # Make prediction using the loaded model
-   
-
+    predicted_class = trained_rf_model.predict([input_data])[0]  # Assuming rf_model is a scikit-learn RandomForestClassifier
+    prediction_label = prediction_labels.get(predicted_class, 'Unknown')
+    return prediction_label
 
 def predict_view(request):
     if request.method == 'POST':
