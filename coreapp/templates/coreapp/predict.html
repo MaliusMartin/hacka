@@ -2,55 +2,56 @@
 {% load bootstrap4 %}
 {% bootstrap_css %}
 {% bootstrap_javascript %}
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <h2 class="mb-4 text-center">Predict Human Development Level</h2>
-        <form method="post">
-          {% csrf_token %}
-          <div class="form-group">
-            <label for="gender_inequality_index">Gender Inequality Index:</label>
-            <input type="number" class="form-control" name="gender_inequality_index" id="gender_inequality_index" required>
-          </div>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h2 class="mb-4 text-center">Predict Human Development Level</h2>
+      <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="gender_inequality_index">Gender Inequality Index:</label>
+          <input type="number" class="form-control" name="gender_inequality_index" id="gender_inequality_index" required step="0.01">
+        </div>
 
-          <div class="form-group">
-            <label for="maternal_mortality_ratio">Maternal Mortality Ratio:</label>
-            <input type="number" class="form-control" name="maternal_mortality_ratio" id="maternal_mortality_ratio" required>
-          </div>
+        <div class="form-group">
+          <label for="maternal_mortality_ratio">Maternal Mortality Ratio:</label>
+          <input type="number" class="form-control" name="maternal_mortality_ratio" id="maternal_mortality_ratio" required step="0.01">
+        </div>
 
-          <div class="form-group">
-            <label for="adolescent_birth_rate">Adolescent Birth Rate:</label>
-            <input type="number" class="form-control" name="adolescent_birth_rate" id="adolescent_birth_rate" required>
-          </div>
+        <div class="form-group">
+          <label for="adolescent_birth_rate">Adolescent Birth Rate:</label>
+          <input type="number" class="form-control" name="adolescent_birth_rate" id="adolescent_birth_rate" required step="0.01">
+        </div>
 
-          <div class="form-group">
-            <label for="women_parliament_seats">Share of Seats in Parliament (% held by women):</label>
-            <input type="number" class="form-control" name="women_parliament_seats" id="women_parliament_seats" required>
-          </div>
+        <div class="form-group">
+          <label for="women_parliament_seats">Share of Seats in Parliament (% held by women):</label>
+          <input type="number" class="form-control" name="women_parliament_seats" id="women_parliament_seats" required step="0.01">
+        </div>
 
-          <div class="form-group">
-            <label for="female_secondary_education">Female Secondary Education:</label>
-            <input type="number" class="form-control" name="female_secondary_education" id="female_secondary_education" required>
-          </div>
+        <div class="form-group">
+          <label for="female_secondary_education">Female Secondary Education:</label>
+          <input type="number" class="form-control" name="female_secondary_education" id="female_secondary_education" required step="0.01">
+        </div>
 
-          <div class="form-group">
-            <label for="male_secondary_education">Male Secondary Education:</label>
-            <input type="number" class="form-control" name="male_secondary_education" id="male_secondary_education" required>
-          </div>
+        <div class="form-group">
+          <label for="male_secondary_education">Male Secondary Education:</label>
+          <input type="number" class="form-control" name="male_secondary_education" id="male_secondary_education" required step="0.01">
+        </div>
 
-          <div class="form-group">
-            <label for="female_labour_force">Female Labour Force (% of total):</label>
-            <input type="number" class="form-control" name="female_labour_force" id="female_labour_force" required>
-          </div>
+        <div class="form-group">
+          <label for="female_labour_force">Female Labour Force (% of total):</label>
+          <input type="number" class="form-control" name="female_labour_force" id="female_labour_force" required step="0.01">
+        </div>
 
-          <div class="form-group">
-            <label for="male_labour_force">Male Labour Force (% of total):</label>
-            <input type="number" class="form-control" name="male_labour_force" id="male_labour_force" required>
-          </div>
+        <div class="form-group">
+          <label for="male_labour_force">Male Labour Force (% of total):</label>
+          <input type="number" class="form-control" name="male_labour_force" id="male_labour_force" required step="0.01">
+        </div>
 
-          <button type="submit" class="btn btn-primary btn-block">Predict</button>
-        </form>
-      </div>
+        <button type="submit" class="btn btn-primary btn-block">Predict</button>
+      </form>
     </div>
   </div>
+</div>
+```
 

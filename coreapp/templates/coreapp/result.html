@@ -1,17 +1,19 @@
 {% load bootstrap4 %}
 {% bootstrap_css %}
 {% bootstrap_javascript %}
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <div class="card mt-5">
-          <div class="card-body">
-            <h2 class="card-title text-center mb-4">Prediction Result</h2>
-            <p class="card-text text-center">The predicted human development level is: {{ prediction }}</p>
-            <!-- You can add additional HTML elements to display more information about the prediction if needed -->
-          </div>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card mt-5">
+        <div class="card-body">
+          <h2 class="card-title text-center mb-4">Prediction Result</h2>
+          <p class="card-text text-center">The predicted human development level is: <strong>{{ prediction }}</strong></p>
+          
         </div>
+      </div>
+      <div class="text-center mt-4">
+        <a href="{% url 'input' %}" class="btn btn-primary">Predict Again</a>
       </div>
     </div>
   </div>
-
+</div>
