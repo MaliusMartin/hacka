@@ -1,15 +1,15 @@
 from django.shortcuts import render
-# from joblib import load
-# from sklearn.ensemble import RandomForestClassifier
+from joblib import load
+from sklearn.ensemble import RandomForestClassifier
 import os
 
-# Get the directory of the current Python module (__file__ is the path of the current module)
+# # Get the directory of the current Python module (__file__ is the path of the current module)
 # current_directory = os.path.dirname(__file__)
 
-# # Construct the path to the trained model file
+# # # Construct the path to the trained model file
 # model_file_path = os.path.join(current_directory, 'trained_rf_model.joblib')
 
-# # Load the trained model
+# # # Load the trained model
 # trained_rf_model = load(model_file_path)
 # print("Model File Path:", model_file_path)
 
@@ -37,8 +37,7 @@ def predict_human_development_level(gender_inequality_index, maternal_mortality_
     }
 
     # Make prediction using the loaded model
-    # prediction = trained_rf_model.predict([list(input_data.values())])  # Assuming rf_model is a scikit-learn RandomForestClassifier
-    # return prediction[0]
+   
 
 
 def predict_view(request):
