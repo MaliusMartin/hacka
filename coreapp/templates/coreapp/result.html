@@ -1,0 +1,17 @@
+{% extends 'coreapp/base.html' %}
+
+{% block content %}
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card mt-5">
+          <div class="card-body">
+            <h2 class="card-title text-center mb-4">Prediction Result</h2>
+            <p class="card-text text-center">The predicted human development level is: {{ prediction }}</p>
+            <!-- You can add additional HTML elements to display more information about the prediction if needed -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
